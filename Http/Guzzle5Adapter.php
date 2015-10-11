@@ -40,7 +40,7 @@ class Guzzle5Adapter implements HttpAdapterInterface
         $requests = array();
         foreach ($data as $url => $path) {
             $requests[] = $client->createRequest('GET', HttpAdapterInterface::BASE_URL.$url, [
-                'save_to' => $path,
+                'save_to' => fopen($path, 'w'),
             ]);
         }
 
